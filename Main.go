@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ricardoaat/bioschemas-govalid/config"
-	"github.com/ricardoaat/bioschemas-govalid/validator"
+	"github.com/ricardoaat/bioschemas-goweb/bioparser"
+	"github.com/ricardoaat/bioschemas-goweb/config"
 	"github.com/rifflock/lfshook"
 	log "github.com/sirupsen/logrus"
 )
@@ -56,6 +56,6 @@ func main() {
 	flag.Parse()
 
 	if !*v {
-		validator.Validate(*f, *u)
+		bioparser.Validate(*f, *u)
 	}
 }

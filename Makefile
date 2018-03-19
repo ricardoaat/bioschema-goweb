@@ -3,8 +3,8 @@
 
 GO_PATH = $(shell echo $(GOPATH) | awk -F':' '{print $$1}')
 GO_SRC = $(shell pwd | xargs dirname | xargs dirname | xargs dirname)
-DEPLOY_PATH := /Users/arcila/ebi/dev/bioschemas-govalid/build/
-BIN_NAME := bioschema-govalid
+DEPLOY_PATH := /Users/arcila/ebi/dev/bioschemas-goweb/build/
+BIN_NAME := bioschema-goweb
 VERSION=$(shell git describe --tags)
 BUILD=$(shell date +%FT%T%z)
 LDFLAGS=-ldflags "-X main.version=${VERSION} -X main.buildDate=${BUILD}"

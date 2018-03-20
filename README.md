@@ -17,9 +17,9 @@ It's just as simple as downloading the right executable file according your Oper
 
 SO |  Link
 --- | ---:
-![alt text](https://github.com/BioSchemas/bioschema-goweb/tree/master/build/images/windows "Windows Logo") | [Windows](build/windows)
-![alt text](https://github.com/BioSchemas/bioschema-goweb/tree/master/build/images/linux "Linux Logo") | [Linux](build/linux)
-![alt text](https://github.com/BioSchemas/bioschema-goweb/tree/master/build/images/apple "Mac Logo") | [MAC Darwin](build/darwin)
+![alt text](images/windows.png "Windows Logo") | [Windows](build/windows)
+![alt text](images/ubuntu.png "Linux Logo") | [Linux](build/linux)
+![alt text](images/apple.png "Mac Logo") | [MAC Darwin](build/darwin)
 
 Once you have got the program, make sure to have a log folder right next to it, as well as the config.toml file. On this file you can configure the path in which the logs will be stored. 
 

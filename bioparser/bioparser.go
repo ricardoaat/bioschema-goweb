@@ -46,7 +46,7 @@ func Validate(f, u string) {
 		Specifications = append(Specifications, s)
 		printYaml()
 	} else {
-		log.Warn("Please enter valid shit")
+		log.Warn("No valid param")
 	}
 }
 

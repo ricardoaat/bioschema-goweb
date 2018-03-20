@@ -1,6 +1,6 @@
 # BIOSCHEMAS.ORG GOWEB
 
-Transforms de specifications definitions on the bioschemas.org drive repository into ready-to-include web files [Bioschemas.org](http://bioschemas.org)
+Transforms specifications definitions on the bioschemas.org's drive repository into ready-to-include Jekyll-Markdown files for [Bioschemas.org](http://bioschemas.org)
 
 ## Gettin the specifications CSV
 Stored on the BIOSCHEMAS.ORG gdrive [specification folder](https://drive.google.com/drive/u/1/folders/0Bw_p-HKWUjHoNThZOWNKbGhOODg) you will find the specification mappings

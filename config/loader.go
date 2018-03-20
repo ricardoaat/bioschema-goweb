@@ -11,7 +11,6 @@ var Conf config
 type config struct {
 	Process process
 	Path    path
-	SFTP    sftp
 }
 
 type process struct {
@@ -19,17 +18,7 @@ type process struct {
 }
 
 type path struct {
-	LogPath      string
-	ResultReport string
-	CsvResources string
-	SFTPDest     string
-}
-
-type sftp struct {
-	Host string
-	Port string
-	User string
-	Pass string
+	LogPath string
 }
 
 /*LoadConfig Loads the configurations parameters stored on

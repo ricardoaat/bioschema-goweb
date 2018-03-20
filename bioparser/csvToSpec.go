@@ -2,18 +2,19 @@ package bioparser
 
 import (
 	"encoding/csv"
+	"errors"
 	"net/http"
 	"os"
 	"regexp"
 	"strings"
 
-	"gopkg.in/yaml.v2"
-
 	log "github.com/sirupsen/logrus"
 )
 
 //LoadFile loads CSV file into an spec object
-func LoadFile(fp string) {
+func LoadFile(fp string) (Specification, error) {
+	var specification Specification
+
 	re := regexp.MustCompile(`.*\.csv$`)
 	isCsv := re.MatchString(fp)
 	if isCsv {
@@ -23,33 +24,35 @@ func LoadFile(fp string) {
 		}
 		defer f.Close()
 
-		parseCSV(csv.NewReader(f))
-	} else {
-		log.WithFields(log.Fields{
-			"file": fp,
-		}).Error("Sorry, that doesn't looks like a CSV file")
+		specification = ParseSpecificationCSV(csv.NewReader(f))
+
+		return specification, nil
 	}
+
+	return specification, errors.New("Error that path doesn't looks like a CSV file")
 }
 
 //LoadURL loads CSV from url into an spec object
-func LoadURL(u string) {
+func LoadURL(u string) (Specification, error) {
+	var specification Specification
+
 	res, err := http.Get(u)
 	if err != nil {
-		log.Panic("Error while downloading", u, "-", err)
-		return
+		return specification, err
 	}
 	defer res.Body.Close()
+	specification = ParseSpecificationCSV(csv.NewReader(res.Body))
 
-	parseCSV(csv.NewReader(res.Body))
+	return specification, nil
 }
 
-func parseCSV(r *csv.Reader) {
+func ParseSpecificationCSV(r *csv.Reader) Specification {
 
 	r.FieldsPerRecord = 7
 
 	csv, err := r.ReadAll()
 	if err != nil {
-		log.Panic("An error has occurred trying to parse the CVS file ", err)
+		log.Panic("An error has occurred trying to parsing the CVS reader ", err)
 	}
 
 	if len(csv) <= 1 {
@@ -75,12 +78,6 @@ func parseCSV(r *csv.Reader) {
 		specificationParams = append(specificationParams, s)
 	}
 
-	Specifications = append(Specifications, Specification{"le name", specificationParams})
-
-	d, err := yaml.Marshal(Specifications[0].SpecificationParams)
-	if err != nil {
-		log.Panic(err)
-	}
-	log.Info(string(d))
+	return Specification{"le name", specificationParams}
 
 }

@@ -20,7 +20,7 @@ func logInit() {
 
 	//now := time.Now()
 	//logfile := config.Conf.Path.LogPath + fmt.Sprintf("govalid_%s.log", now.Format("20060102T150405"))
-	logfile := config.Conf.Path.LogPath + "govalid.log"
+	logfile := config.Conf.Path.LogPath + "goweb.log"
 	fmt.Println("Loging to " + logfile)
 	log.SetOutput(os.Stdout)
 	log.SetLevel(log.DebugLevel)

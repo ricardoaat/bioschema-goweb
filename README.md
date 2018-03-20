@@ -9,7 +9,11 @@ there on the mapping sheet:
 - Select "Bioschemas fields" and "Comma separated values (.csv)" as the output format.
 - Click on Publish
 
-You can use the provided link with the tool directly on the tool, or download it and feed the CSV file to tool using the -f command.
+If the Publish button is not enable, use the URL provided there. You should get an URL similar to this: 
+
+``` https://docs.google.com/spreadsheets/d/e/2PACX-1vRb23ofqiLsw4AvBFr5ysBdrtNvsGCYc4CdPhPPaeLd0MJm3mhCOYSdidlwhkGi6mqEJ7Qx9rLQcCPq/pub?gid=292464567&single=true&output=csv ```
+
+Use it directly on the tool, or download it and feed the CSV file to tool using the -f command.
 
 ## Anyone can use it!
 

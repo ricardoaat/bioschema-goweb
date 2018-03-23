@@ -21,27 +21,9 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/xeipuuv/gojsonpointer"
-  packages = ["."]
-  revision = "4e3ac2762d5f479393488629ee9370b50873b3a6"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/xeipuuv/gojsonreference"
-  packages = ["."]
-  revision = "bd5ef7bd5415a7ac448318e64f11a24cd21e594b"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/xeipuuv/gojsonschema"
-  packages = ["."]
-  revision = "8bcffc811467a5f691810420385be6e66b35a317"
-
-[[projects]]
-  branch = "master"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
-  revision = "c7dcf104e3a7a1417abc0230cb0d5240d764159d"
+  revision = "80db560fac1fb3e6ac81dbc7f8ae4c061f5257bd"
 
 [[projects]]
   branch = "master"
@@ -50,7 +32,7 @@
     "unix",
     "windows"
   ]
-  revision = "c28acc882ebcbfbe8ce9f0f14b9ac26ee138dd51"
+  revision = "c488ab1dd8481ef762f96a79a9577c27825be697"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
@@ -61,6 +43,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "0808a8aa51ed4cccd74ba205ab6b58d8185cdb1ae92b5d43520c165b60cecf12"
+  inputs-digest = "97b9fe1a7ae2ee7f1ebfbe6e0165ebaef68b37781fabc4eebcbf8156621349f4"
   solver-name = "gps-cdcl"
   solver-version = 1

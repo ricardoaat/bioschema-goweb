@@ -12,7 +12,7 @@ BUILD=$(shell date +%FT%T%z)
 LDFLAGS=-ldflags "-X main.version=${VERSION} -X main.buildDate=${BUILD}"
 
 build:
-	go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)$(BIN_NAME) main.go
+	go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)example/$(BIN_NAME) main.go
 
 windowsbuild:
 	env GOOS=windows GOARCH=amd64 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)windows/64/$(BIN_NAME) main.go

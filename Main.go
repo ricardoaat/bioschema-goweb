@@ -63,6 +63,6 @@ func main() {
 	log.Debug("Loaded configuration " + fmt.Sprint(config.Conf))
 
 	if !*v {
-		bioparser.Validate(*f, *u)
+		bioparser.Start(*u, *f)
 	}
 }

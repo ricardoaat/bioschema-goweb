@@ -5,7 +5,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-//Conf global configure instance
+//Conf is the global configure instance
 var Conf config
 
 type config struct {
@@ -19,14 +19,15 @@ type process struct {
 
 type path struct {
 	LogPath string
+	OutPath string
 }
 
 /*LoadConfig Loads the configurations parameters stored on
 * the configuration file (config.toml)
  */
-func LoadConfig(configFile string) error {
+func LoadConfig(cf string) error {
 
-	if _, err := toml.DecodeFile(configFile, &Conf); err != nil {
+	if _, err := toml.DecodeFile(cf, &Conf); err != nil {
 		log.Fatal("Load config failed", err)
 		return err
 	}

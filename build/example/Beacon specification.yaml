@@ -1,0 +1,130 @@
+spec_info:
+  title: Beacon
+  subtitle: 'A convention for beacon to self-describe. '
+  description: 'In this document we propose a simple way for a beacons to self-describe
+    their genetic variant cardinality service for better integration with other beacons
+    within the beacon-network. It builds upon the Beacon service API and uses existing
+    schema.org entities and properties. '
+  version: "0.2"
+  official_type: ""
+  full_example: ""
+mapping:
+- property: description
+  expected_type: Text
+  description: A description of the item.
+  type: ""
+  type_url: ""
+  bsc_description: Description of this Beacon
+  marginality: Recommended
+  cardinality: ONE
+  controlled_vocab: ""
+  example: ""
+- property: identifier
+  expected_type: PropertyValue or Text or URL
+  description: The identifier property represents any kind of identifier for any kind
+    of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated
+    properties for representing many of these, either as textual strings or as URL
+    (URI) links. See background notes for more details.
+  type: ""
+  type_url: ""
+  bsc_description: Identifier
+  marginality: Recommended
+  cardinality: ONE
+  controlled_vocab: ""
+  example: ""
+- property: name
+  expected_type: Text
+  description: The name of the item.
+  type: ""
+  type_url: ""
+  bsc_description: Name of this Beacon
+  marginality: Minimum
+  cardinality: ONE
+  controlled_vocab: ""
+  example: ""
+- property: potentialAction
+  expected_type: Action
+  description: Indicates a potential Action, which describes an idealized action in
+    which this thing would play an 'object' role.
+  type: ""
+  type_url: ""
+  bsc_description: List of Actions that can be performed on this Beacon
+  marginality: Minimum
+  cardinality: MANY
+  controlled_vocab: ""
+  example: ""
+- property: sameAs
+  expected_type: URL
+  description: URL of a reference Web page that unambiguously indicates the item's
+    identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official
+    website.
+  type: ""
+  type_url: ""
+  bsc_description: Alternative URL for this Beacon
+  marginality: Optional
+  cardinality: MANY
+  controlled_vocab: ""
+  example: ""
+- property: url
+  expected_type: URL
+  description: URL of the item.
+  type: ""
+  type_url: ""
+  bsc_description: Welcome Page of this Beacon
+  marginality: Minimum
+  cardinality: ONE
+  controlled_vocab: ""
+  example: ""
+- property: dataset
+  expected_type: Dataset
+  description: 'A dataset contained in this catalog.Inverse property: includedInDataCatalog.'
+  type: ""
+  type_url: ""
+  bsc_description: Dataset(s) served by this Beacon
+  marginality: Minimum
+  cardinality: MANY
+  controlled_vocab: ""
+  example: ""
+- property: provider
+  expected_type: Organization or Person
+  description: The service provider, service operator, or service performer; the goods
+    producer. Another party (a seller) may offer those services or goods on behalf
+    of the provider. A provider may also serve as the seller. Supersedes carrier.
+  type: ""
+  type_url: ""
+  bsc_description: Contact information for this Beacon
+  marginality: Minimum
+  cardinality: MANY
+  controlled_vocab: ""
+  example: ""
+- property: version
+  expected_type: Number or Text
+  description: The version of the CreativeWork embodied by a specified resource.
+  type: ""
+  type_url: ""
+  bsc_description: Beacon API version number
+  marginality: Recommended
+  cardinality: ONE
+  controlled_vocab: ""
+  example: ""
+- property: supportedReference
+  expected_type: citation
+  description: A citation or reference to another creative work, such as another publication,
+    web page, scholarly article, etc.
+  type: bioschemas
+  type_url: ""
+  bsc_description: Supported Genome ID references
+  marginality: Minimum
+  cardinality: MANY
+  controlled_vocab: ""
+  example: ""
+- property: aggregator
+  expected_type: Boolean
+  description: ""
+  type: bioschemas
+  type_url: ""
+  bsc_description: True if Beacon is an agregator of other Beacon Datasets
+  marginality: Recommended
+  cardinality: ONE
+  controlled_vocab: ""
+  example: ""

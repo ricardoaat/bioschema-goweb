@@ -25,7 +25,7 @@ SO |  Link
 ![alt text](images/ubuntu.png "Linux Logo") | [Linux](build/linux)
 ![alt text](images/apple.png "Mac Logo") | [MAC Darwin](build/darwin)
 
-Once you have got the program, make sure to have a log folder right next to it, as well as the [config.toml](build/config.toml) file. On this file you can configure the path in which the logs will be stored. 
+Once you have got the program, make sure to have a log folder right next to it, as well as the [config.toml](build/example/config.toml) file. On this file you can configure the path in which the logs will be stored. 
 
 ### Example getting markdown from the GDrive spreadsheet URL
 

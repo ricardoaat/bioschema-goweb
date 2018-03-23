@@ -15,15 +15,15 @@ build:
 	go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)example/$(BIN_NAME) main.go
 
 windowsbuild:
-	env GOOS=windows GOARCH=amd64 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)windows/64/$(BIN_NAME) main.go
-	env GOOS=windows GOARCH=386 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)windows/x86/$(BIN_NAME) main.go
+	env GOOS=windows GOARCH=amd64 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)windows/64/$(BIN_NAME)_windows_64.exe main.go
+	env GOOS=windows GOARCH=386 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)windows/x86/$(BIN_NAME)_windows_x86.exe main.go
 
 linuxbuild:
-	env GOOS=linux GOARCH=amd64 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)linux/64/$(BIN_NAME) main.go
-	env GOOS=linux GOARCH=386 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)linux/x86/$(BIN_NAME) main.go
+	env GOOS=linux GOARCH=amd64 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)linux/64/$(BIN_NAME)_linux_64 main.go
+	env GOOS=linux GOARCH=386 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)linux/x86/$(BIN_NAME)_linux_x86 main.go
 
 macbuild:
-	env GOOS=darwin GOARCH=amd64 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)darwin/64/$(BIN_NAME) main.go
-	env GOOS=darwin GOARCH=386 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)darwin/x86/$(BIN_NAME) main.go
+	env GOOS=darwin GOARCH=amd64 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)darwin/64/$(BIN_NAME)_mac_64 main.go
+	env GOOS=darwin GOARCH=386 go build -i -v $(LDFLAGS) -o $(DEPLOY_PATH)darwin/x86/$(BIN_NAME)_mac_x86 main.go
 
 build-all: windowsbuild linuxbuild	macbuild

@@ -14,16 +14,16 @@ import (
 
 //SpecificationParam Represents a parameter of a bioschemas spec
 type SpecificationParam struct {
-	Property             string `yaml:"property"`
-	ExpectedType         string `yaml:"expected_type"`
-	Description          string `yaml:"description"`
-	Type                 string `yaml:"type"`
-	TypeURL              string `yaml:"type_url"`
-	BscDescription       string `yaml:"bsc_description"`
-	Marginality          string `yaml:"marginality"`
-	Cardinality          string `yaml:"cardinality"`
-	ControlledVocabulary string `yaml:"controlled_vocab"`
-	Example              string `yaml:"example"`
+	Property             string   `yaml:"property"`
+	ExpectedTypes        []string `yaml:"expected_types"`
+	Description          string   `yaml:"description"`
+	Type                 string   `yaml:"type"`
+	TypeURL              string   `yaml:"type_url"`
+	BscDescription       string   `yaml:"bsc_description"`
+	Marginality          string   `yaml:"marginality"`
+	Cardinality          string   `yaml:"cardinality"`
+	ControlledVocabulary string   `yaml:"controlled_vocab"`
+	Example              string   `yaml:"example"`
 }
 
 //SpecificationInfo Details for an specification struct

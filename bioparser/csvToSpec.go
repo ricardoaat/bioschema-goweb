@@ -15,6 +15,8 @@ import (
 func LoadFile(fp string) (Specification, error) {
 	var specification Specification
 
+	log.Debug("Loading file ", fp)
+
 	re := regexp.MustCompile(`.*\.csv$`)
 	isCsv := re.MatchString(fp)
 	if isCsv {
@@ -31,6 +33,8 @@ func LoadFile(fp string) (Specification, error) {
 
 		return specification, nil
 	}
+
+	log.Debug("The file name doesn't have .csv extension")
 
 	return specification, errors.New("Error that path doesn't looks like a CSV file")
 }
@@ -60,7 +64,7 @@ ParseSpecificationCSV reads the CSV file
 */
 func ParseSpecificationCSV(r *csv.Reader) (Specification, error) {
 	var specification Specification
-
+	log.Debug("START - CSV parsing")
 	r.FieldsPerRecord = 10
 
 	csv, err := r.ReadAll()
@@ -70,7 +74,7 @@ func ParseSpecificationCSV(r *csv.Reader) (Specification, error) {
 	}
 
 	if len(csv) <= 1 {
-		log.Error("Empty file, please check its content")
+		log.Error("Empty content, please check the CSV")
 		return specification, err
 	}
 	log.Debug("CSV lenght ", len(csv))
@@ -79,8 +83,12 @@ func ParseSpecificationCSV(r *csv.Reader) (Specification, error) {
 	var specInfo SpecificationInfo
 
 	for i, row := range csv {
-
+		log.WithFields(log.Fields{
+			"row":   row,
+			"index": i,
+		}).Debug("Parsing row ", i)
 		if i == 1 {
+			log.Debug("Row 1 Specifications Info")
 			specInfo = SpecificationInfo{
 				Title:        strings.Replace(row[0], "\n", "", -1),
 				Subtitle:     strings.Replace(row[1], "\n", "", -1),
@@ -92,12 +100,15 @@ func ParseSpecificationCSV(r *csv.Reader) (Specification, error) {
 		}
 
 		if i <= 3 {
-			log.Debug("Skipped ", row)
+			log.Debug("The row doesn't contain Specification Parameters SKIPPING ")
 			continue
 		}
+
+		xtypes := extractExpectedTypes(strings.Replace(row[1], "\n", "", -1))
+		log.Debug("Extracted Expected Types", xtypes)
 		s := SpecificationParam{
 			Property:             strings.Replace(row[0], "\n", "", -1),
-			ExpectedType:         strings.Replace(row[1], "\n", "", -1),
+			ExpectedTypes:        xtypes,
 			Description:          strings.Replace(row[2], "\n", "", -1),
 			Type:                 strings.Replace(row[3], "\n", "", -1),
 			TypeURL:              strings.Replace(row[4], "\n", "", -1),
@@ -105,11 +116,22 @@ func ParseSpecificationCSV(r *csv.Reader) (Specification, error) {
 			Marginality:          strings.Replace(row[6], "\n", "", -1),
 			Cardinality:          strings.Replace(row[7], "\n", "", -1),
 			ControlledVocabulary: strings.Replace(row[8], "\n", "", -1),
-			Example:              strings.Replace(row[9], "\n", "", -1),
+			Example:              row[9],
 		}
 		specParams = append(specParams, s)
 	}
 	specification = Specification{specInfo, specParams}
 
 	return specification, nil
+}
+
+func extractExpectedTypes(s string) []string {
+	re := regexp.MustCompile("[^A-Za-z]or[^A-Za-z]")
+	ss := re.Split(s, -1)
+
+	for i, et := range ss {
+		ss[i] = strings.TrimSpace(et)
+	}
+
+	return ss
 }

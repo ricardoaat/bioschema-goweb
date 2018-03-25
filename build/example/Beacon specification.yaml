@@ -10,7 +10,8 @@ spec_info:
   full_example: ""
 mapping:
 - property: description
-  expected_type: Text
+  expected_types:
+  - Text
   description: A description of the item.
   type: ""
   type_url: ""
@@ -20,7 +21,10 @@ mapping:
   controlled_vocab: ""
   example: ""
 - property: identifier
-  expected_type: PropertyValue or Text or URL
+  expected_types:
+  - PropertyValue
+  - Text
+  - URL
   description: The identifier property represents any kind of identifier for any kind
     of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated
     properties for representing many of these, either as textual strings or as URL
@@ -33,7 +37,8 @@ mapping:
   controlled_vocab: ""
   example: ""
 - property: name
-  expected_type: Text
+  expected_types:
+  - Text
   description: The name of the item.
   type: ""
   type_url: ""
@@ -43,7 +48,8 @@ mapping:
   controlled_vocab: ""
   example: ""
 - property: potentialAction
-  expected_type: Action
+  expected_types:
+  - Action
   description: Indicates a potential Action, which describes an idealized action in
     which this thing would play an 'object' role.
   type: ""
@@ -54,7 +60,8 @@ mapping:
   controlled_vocab: ""
   example: ""
 - property: sameAs
-  expected_type: URL
+  expected_types:
+  - URL
   description: URL of a reference Web page that unambiguously indicates the item's
     identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official
     website.
@@ -66,17 +73,19 @@ mapping:
   controlled_vocab: ""
   example: ""
 - property: url
-  expected_type: URL
+  expected_types:
+  - URL
   description: URL of the item.
-  type: ""
-  type_url: ""
+  type: external
+  type_url: https://www.w3.org/1999/02/22-rdf-syntax-ns#type
   bsc_description: Welcome Page of this Beacon
   marginality: Minimum
   cardinality: ONE
   controlled_vocab: ""
   example: ""
 - property: dataset
-  expected_type: Dataset
+  expected_types:
+  - Dataset
   description: 'A dataset contained in this catalog.Inverse property: includedInDataCatalog.'
   type: ""
   type_url: ""
@@ -86,7 +95,9 @@ mapping:
   controlled_vocab: ""
   example: ""
 - property: provider
-  expected_type: Organization or Person
+  expected_types:
+  - Organization
+  - Person
   description: The service provider, service operator, or service performer; the goods
     producer. Another party (a seller) may offer those services or goods on behalf
     of the provider. A provider may also serve as the seller. Supersedes carrier.
@@ -98,7 +109,9 @@ mapping:
   controlled_vocab: ""
   example: ""
 - property: version
-  expected_type: Number or Text
+  expected_types:
+  - Number
+  - Text
   description: The version of the CreativeWork embodied by a specified resource.
   type: ""
   type_url: ""
@@ -108,7 +121,8 @@ mapping:
   controlled_vocab: ""
   example: ""
 - property: supportedReference
-  expected_type: citation
+  expected_types:
+  - citation
   description: A citation or reference to another creative work, such as another publication,
     web page, scholarly article, etc.
   type: bioschemas
@@ -119,7 +133,8 @@ mapping:
   controlled_vocab: ""
   example: ""
 - property: aggregator
-  expected_type: Boolean
+  expected_types:
+  - Boolean
   description: ""
   type: bioschemas
   type_url: ""

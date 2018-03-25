@@ -60,7 +60,9 @@ func main() {
 
 	log.Info("--------------Init program--------------")
 	log.Info(fmt.Sprintf("Version: %s Build Date: %s", version, buildDate))
-	log.Debug("Loaded configuration " + fmt.Sprint(config.Conf))
+	log.WithFields(log.Fields{
+		"config": config.Conf,
+	}).Debug("Loading configuration...")
 
 	if !*v {
 		bioparser.Start(*u, *f)

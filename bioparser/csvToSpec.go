@@ -126,7 +126,7 @@ func ParseSpecificationCSV(r *csv.Reader) (Specification, error) {
 }
 
 func extractExpectedTypes(s string) []string {
-	re := regexp.MustCompile("[^A-Za-z]or[^A-Za-z]")
+	re := regexp.MustCompile("[^A-Za-z0-9]*([^A-Za-z0-9]or[^A-Za-z0-9]|,)[^A-Za-z0-9]*")
 	ss := re.Split(s, -1)
 
 	for i, et := range ss {

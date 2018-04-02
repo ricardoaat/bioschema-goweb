@@ -13,15 +13,22 @@ import (
 )
 
 func TestParseSpecificationCSVToReturnSpecificationInstance(t *testing.T) {
-	mdata := `schema.org,,,bioschemas,,,
-Property,Expected Type,Description,BSC Description,MG,CN,CV
-dataset,Dataset,"A dataset contained in this catalog.
-Inverse property: includedInDataCatalog.",Dataset(s) served by this Beacon,Minimum,MANY,
+	mdata := `title,subtitle,description,version,official type,full example,,,,
+Beacon,A convention for beacon to self-describe. ,In this document we propose a simple way for a beacons to self-describe their genetic variant cardinality service for better integration with other beacons within the beacon-network. It builds upon the Beacon service API and uses existing schema.org entities and properties.		,0.2,,,,,,
+schema.org / pending / External ontologies,,,,,bioschemas,,,,
+Property,Expected Type,Description,Type,Type URL,BSC Description,Marginality,Cardinality,Controlled Vocabulary,Example
+description,Text,A description of the item.,,,Description of this Beacon,Recommended,ONE,,
+identifier,"PropertyValue or 
+Text or 
+URL","The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details.",,,Identifier,Recommended,ONE,,
 `
 	r := csv.NewReader(strings.NewReader(mdata))
 
-	actual := bioparser.ParseSpecificationCSV(r).SpecificationParams[0].Property
-	expected := "dataset"
+	spec, err := bioparser.ParseSpecificationCSV(r)
+	ok(t, err)
+
+	actual := spec.SpecificationParams[0].Property
+	expected := "description"
 
 	assert(t, actual == expected, fmt.Sprintf("Expected %s but got %s", expected, actual))
 }

@@ -5,13 +5,12 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-//Conf global configure instance
+//Conf is the global configure instance
 var Conf config
 
 type config struct {
 	Process process
 	Path    path
-	SFTP    sftp
 }
 
 type process struct {
@@ -19,25 +18,16 @@ type process struct {
 }
 
 type path struct {
-	LogPath      string
-	ResultReport string
-	CsvResources string
-	SFTPDest     string
-}
-
-type sftp struct {
-	Host string
-	Port string
-	User string
-	Pass string
+	LogPath string
+	OutPath string
 }
 
 /*LoadConfig Loads the configurations parameters stored on
 * the configuration file (config.toml)
  */
-func LoadConfig(configFile string) error {
+func LoadConfig(cf string) error {
 
-	if _, err := toml.DecodeFile(configFile, &Conf); err != nil {
+	if _, err := toml.DecodeFile(cf, &Conf); err != nil {
 		log.Fatal("Load config failed", err)
 		return err
 	}

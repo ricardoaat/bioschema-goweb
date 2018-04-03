@@ -109,13 +109,13 @@ func ParseSpecificationCSV(r *csv.Reader) (Specification, error) {
 		s := SpecificationParam{
 			Property:             strings.Replace(row[0], "\n", "", -1),
 			ExpectedTypes:        xtypes,
-			Description:          strings.Replace(row[2], "\n", "", -1),
+			Description:          row[2],
 			Type:                 strings.Replace(row[3], "\n", "", -1),
 			TypeURL:              strings.Replace(row[4], "\n", "", -1),
-			BscDescription:       strings.Replace(row[5], "\n", "", -1),
+			BscDescription:       row[5],
 			Marginality:          strings.Replace(row[6], "\n", "", -1),
 			Cardinality:          strings.Replace(row[7], "\n", "", -1),
-			ControlledVocabulary: strings.Replace(row[8], "\n", "", -1),
+			ControlledVocabulary: row[8],
 			Example:              row[9],
 		}
 		specParams = append(specParams, s)

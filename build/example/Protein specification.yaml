@@ -11,28 +11,16 @@ mapping:
 - property: additionalProperty
   expected_types:
   - PropertyValue
-  description: 'A property-value pair representing an additional characteristics of
-    the entitity, e.g. a product feature or another characteristic for which there
-    is no matching property in schema.org.Note: Publishers should be aware that applications
-    designed to use specific schema.org properties (e.g. http://schema.org/width,
-    http://schema.org/color, http://schema.org/gtin13, ...) will typically expect
-    such data to be provided using those properties, rather than using the generic
-    property/value mechanism.'
+  description: |-
+    A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.
+
+    Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
   type: ""
   type_url: ""
-  bsc_description: 'Whenever possible, please use a property coined in a third-party
-    well-know vocabulary. For instance, you can directly use [RO ObjectProperty: enables](http://purl.obolibrary.org/obo/RO_0002327)
-    as a property to express how a protein or gene enables some GO molecular function.
-    If you still want or need to use additionalProperty, please use (i) property name
-    to specify the name of the property, (ii) additionalType (if possible) to better
-    specify the nature of the property, and (iii) value to link to the object/range
-    of this property. We recommed to look at the [OBO Relations Ontology (RO)](http://obofoundry.org/ontology/ro.html)
-    or the [Semanticscience Integrated Ontology (SIO)](http://sio.semanticscience.org/)
-    as starting points.**Bioschemas Protein**: If no suitable property exists in this
-    profile, use any ontology term coined as a property and suitable for your needs.
-    For instance [sio:SIO_000095](http://semanticscience.org/resource/SIO_000095)
-    (is member of) could be used to model the relation between a protein and a protein
-    clan.'
+  bsc_description: |-
+    Whenever possible, please use a property coined in a third-party well-know vocabulary. For instance, you can directly use [RO ObjectProperty: enables](http://purl.obolibrary.org/obo/RO_0002327) as a property to express how a protein or gene enables some GO molecular function. If you still want or need to use additionalProperty, please use (i) property name to specify the name of the property, (ii) additionalType (if possible) to better specify the nature of the property, and (iii) value to link to the object/range of this property. We recommed to look at the [OBO Relations Ontology (RO)](http://obofoundry.org/ontology/ro.html) or the [Semanticscience Integrated Ontology (SIO)](http://sio.semanticscience.org/) as starting points.
+
+    **Bioschemas Protein**: If no suitable property exists in this profile, use any ontology term coined as a property and suitable for your needs. For instance [sio:SIO_000095](http://semanticscience.org/resource/SIO_000095) (is member of) could be used to model the relation between a protein and a protein clan.
   marginality: Optional
   cardinality: MANY
   controlled_vocab: ""
@@ -54,12 +42,15 @@ mapping:
     externally.
   type: ""
   type_url: ""
-  bsc_description: Any ontology term describing the protein concept. This is in addition
-    to the official type used in Bioscheamas to describe a protein.The official type
-    for the Protein profile is [PR 000000001](http://purl.obolibrary.org/obo/PR_000000001)
+  bsc_description: |-
+    Any ontology term describing the protein concept. This is in addition to the official type used in Bioscheamas to describe a protein.
+
+    The official type for the Protein profile is [PR 000000001](http://purl.obolibrary.org/obo/PR_000000001)
   marginality: Optional
   cardinality: MANY
-  controlled_vocab: '[wikidata:protein](https://www.wikidata.org/wiki/Q8054)[SIO:010043](http://semanticscience.org/resource/SIO_010043.rdf)'
+  controlled_vocab: |-
+    [wikidata:protein](https://www.wikidata.org/wiki/Q8054)
+    [SIO:010043](http://semanticscience.org/resource/SIO_010043.rdf)
   example: |-
     {
       "@type": ["BioChemEntity", "Protein"],
@@ -83,10 +74,10 @@ mapping:
 - property: categoryCode
   expected_types:
   - CategoryCode
-  description: A controlled vocabulary term equivalent to this entity. For instance,
-    an organism coined in NCBI taxonomy can be represented as a BioChemEntity. As
-    it also exists as a term in an ontology, it would be nice to capture that information
-    via categoryCode.
+  description: "A controlled vocabulary term equivalent to this entity. For instance,
+    an organism coined in NCBI taxonomy can be represented as a\n BioChemEntity. As
+    it also exists as a term in an ontology, it would be \nnice to capture that information
+    via categoryCode."
   type: pending
   type_url: ""
   bsc_description: ""
@@ -101,10 +92,10 @@ mapping:
   description: ""
   type: bioschemas
   type_url: http://bioschemas.org/types/BioChemEntity/specification/#contains
-  bsc_description: 'Indicates a BioChemEntity that is (in some sense) a part of this
-    BioChemEntity. _Inverse property: isContainedIn._Inverse_asdf**Bioschemas Protein**:
-    For proteins, it can be used to link to protein sequence annotations such as domains,
-    sites, regions, etc.'
+  bsc_description: |-
+    Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity. _Inverse property: isContainedIn_.
+
+    **Bioschemas Protein**: For proteins, it can be used to link to protein sequence annotations such as domains, sites, regions, etc.
   marginality: Optional
   cardinality: MANY
   controlled_vocab: Any suitable ontology
@@ -148,13 +139,13 @@ mapping:
   description: ""
   type: bioschemas
   type_url: http://bioschemas.org/types/BioChemEntity/specification/#hasRepresentation
-  bsc_description: 'A representation for this entity other than, for instance, an
+  bsc_description: "A representation for this entity other than, for instance, an
     image (use image property for that) or the main web page/record (use mainEntityOfPage
     for that), and see [background notes](http://schema.org/docs/datamodel.html#mainEntityBackground),
-    for sameAs and url). **Bioschemas Protein**: This property could be used, for
-    instance, to register a sequence protein as it is a representation of the protein.
-    If you want to better define the nature of the representation, use a PropertyValue
-    as described in [additionalProperty](http://bioschemas.org/devSpecs/Protein/specification/#additionalProperty).'
+    for sameAs and url). \n\n**Bioschemas Protein**: This property could be used,
+    for instance, to register a sequence protein as it is a representation of the
+    protein. If you want to better define the nature of the representation, use a
+    PropertyValue as described in [additionalProperty](http://bioschemas.org/devSpecs/Protein/specification/#additionalProperty)."
   marginality: Optional
   cardinality: MANY
   controlled_vocab: ""
@@ -203,14 +194,14 @@ mapping:
   description: ""
   type: bioschemas
   type_url: http://bioschemas.org/types/BioChemEntity/specification/#isContainedIn
-  bsc_description: 'Indicates a BioChemEntity that this BioChemEntity is (in some
-    sense) part of this BioChemEntity. _Inverse property: containedIn_ **Bioschemas
+  bsc_description: "Indicates a BioChemEntity that this BioChemEntity is (in some
+    sense) part of this BioChemEntity. _Inverse property: containedIn_ \n\n**Bioschemas
     Protein**: For proteins, it is recommended to at least specify the taxon/organism
     associated to the described protein. For taxon/organism, it is a good practice
     to use categoryCode to point to a controlled vacabulary such as NCBI taxon or
     UniProt Taxonomy. Including as well the GO cellular locations is optional; for
     cellular locations it is a good practice to use categorryCode to point to a GO
-    Cellular Location term. '
+    Cellular Location term."
   marginality: Recommended
   cardinality: MANY
   controlled_vocab: Any suitable ontology
@@ -226,11 +217,11 @@ mapping:
     is located, or where an action takes place.
   type: ""
   type_url: ""
-  bsc_description: 'The location can be refer to a position in a chromosome or sequence
+  bsc_description: "The location can be refer to a position in a chromosome or sequence
     or to a physical place where, for instance, a sample is stored. Using additionalType
     is advised to make the distinction. For instance, FALDO can be used for sequence
-    coordinates. **_Note_**: The list of Expected Types has been extended as schema.org/location
-    only has Place, PostalAddress and Text.'
+    coordinates. \n\n**_Note_**: The list of Expected Types has been extended as schema.org/location
+    only has Place, PostalAddress and Text."
   marginality: Optional
   cardinality: MANY
   controlled_vocab: ""
@@ -239,14 +230,14 @@ mapping:
   expected_types:
   - CreativeWork
   - URL
-  description: 'Indicates a page (or other CreativeWork) for which this thing is the
-    main entity being described. See [background notes](http://schema.org/docs/datamodel.html#mainEntityBackground)
-    for details.Inverse property: mainEntity.'
+  description: |-
+    Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](http://schema.org/docs/datamodel.html#mainEntityBackground) for details.
+    Inverse property: mainEntity.
   type: ""
   type_url: ""
-  bsc_description: 'Link via DataRecord to the main DataRecord representing this entity
-    in a dataset. **Bioschemas Protein**: Currently not in use; use the [mainEntity](http://bioschemas.org/types/DataRecord/specification/)
-    property from DataRecord instead.'
+  bsc_description: "Link via DataRecord to the main DataRecord representing this entity
+    in a dataset. \n\n**Bioschemas Protein**: Currently not in use; use the [mainEntity](http://bioschemas.org/types/DataRecord/specification/)
+    property from DataRecord instead."
   marginality: Optional
   cardinality: MANY
   controlled_vocab: ""
@@ -278,9 +269,9 @@ mapping:
   description: ""
   type: external
   type_url: ' http://purl.obolibrary.org/obo/RO_0002327'
-  bsc_description: 'RO:0002327 (enables). GO molecular function enabled by the protein.
-    Recommended range: BioChemEntity or CategoryCode, ProteinAnnotation if evidence
-    should be included.'
+  bsc_description: "RO:0002327 (enables). GO molecular function enabled by the protein.
+    \nRecommended range: BioChemEntity or CategoryCode, ProteinAnnotation if evidence
+    should be included."
   marginality: Optional
   cardinality: MANY
   controlled_vocab: '[Gene Ontology (GO)](http://www.geneontology.org)'
@@ -328,9 +319,9 @@ mapping:
   description: ""
   type: external
   type_url: ' http://purl.obolibrary.org/obo/RO_0002331'
-  bsc_description: 'RO:0002331 (is involved in). GO biological process this protein
-    is involved in.Recommended range: BioChemEntity or CategoryCode, ProteinAnnotation
-    if evidence should be included.'
+  bsc_description: |-
+    RO:0002331 (is involved in). GO biological process this protein is involved in.
+    Recommended range: BioChemEntity or CategoryCode, ProteinAnnotation if evidence should be included.
   marginality: Optional
   cardinality: MANY
   controlled_vocab: '[Gene Ontology (GO)](http://www.geneontology.org)'

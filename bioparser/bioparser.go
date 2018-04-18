@@ -32,6 +32,7 @@ type SpecificationInfo struct {
 	Subtitle     string `yaml:"subtitle"`
 	Description  string `yaml:"description"`
 	Version      string `yaml:"version"`
+	VersionDate  string `yaml:"version_date"`
 	OfficialType string `yaml:"official_type"`
 	FullExample  string `yaml:"full_example"`
 }

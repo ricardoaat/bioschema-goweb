@@ -7,6 +7,7 @@ import (
 	"os"
 	"regexp"
 	"strings"
+	"time"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -63,6 +64,8 @@ ParseSpecificationCSV reads the CSV file
 	and from the fourth row the mapping.
 */
 func ParseSpecificationCSV(r *csv.Reader) (Specification, error) {
+	now := time.Now()
+
 	var specification Specification
 	log.Debug("START - CSV parsing")
 	r.FieldsPerRecord = 10
@@ -94,6 +97,7 @@ func ParseSpecificationCSV(r *csv.Reader) (Specification, error) {
 				Subtitle:     strings.Replace(row[1], "\n", "", -1),
 				Description:  strings.Replace(row[2], "\n", "", -1),
 				Version:      strings.Replace(row[3], "\n", "", -1),
+				VersionDate:  now.Format("20060102T150405"),
 				OfficialType: strings.Replace(row[4], "\n", "", -1),
 				FullExample:  strings.Replace(row[5], "\n", "", -1),
 			}

@@ -29,12 +29,13 @@ Once you have got the program, make sure to have a log folder right next to it, 
 
 ### Example getting markdown from the GDrive spreadsheet URL
 
-```./bioschema-goweb -u https://docs.google.com/spreadsheets/d/e/2PACX-1vTgQwURl7JI0S_ZcbgMrvkGZhQDLJv322vb86Vbdt1k0_AbIpoS_fAebeJGG0U328Kewqtm_3Ww2YDK/pub\?gid\=292464567\&single\=true\&output\=csv```
+```./bioschema-goweb -u "https://docs.google.com/spreadsheets/d/e/2PACX-1vTgQwURl7JI0S_ZcbgMrvkGZhQDLJv322vb86Vbdt1k0_AbIpoS_fAebeJGG0U328Kewqtm_3Ww2YDK/pub\?gid\=292464567\&single\=true\&output\=csv"```
 
+> **Note:** Use quotation marks for the URL
 
 ### Example getting markdown from the GDrive spreadsheet CSV file 
 
-```./bioschema-goweb -f Beacon\ Mapping\ -\ Bioschemas\ fields.csv```
+```./bioschema-goweb -f "Beacon Mapping - Bioschemas fields.csv"```
 
 ## Help
 

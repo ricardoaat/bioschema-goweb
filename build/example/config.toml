@@ -1,7 +1,0 @@
-[Process]
-Backup = false 
-
-[Path]
-LogPath = "log/"
-OutPath = ""
-

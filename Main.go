@@ -6,7 +6,6 @@ import (
 	"os"
 
 	"github.com/ricardoaat/bioschemas-goweb/bioparser"
-	"github.com/ricardoaat/bioschemas-goweb/config"
 	"github.com/rifflock/lfshook"
 	log "github.com/sirupsen/logrus"
 )
@@ -18,9 +17,7 @@ var (
 
 func logInit(d bool) {
 
-	//now := time.Now()
-	//logfile := config.Conf.Path.LogPath + fmt.Sprintf("govalid_%s.log", now.Format("20060102T150405"))
-	logfile := config.Conf.Path.LogPath + "goweb.log"
+	logfile := "goweb.log"
 	fmt.Println("Loging to " + logfile)
 	log.SetOutput(os.Stdout)
 	if d {
@@ -52,17 +49,10 @@ func main() {
 
 	flag.Parse()
 
-	err := config.LoadConfig("config.toml")
-	if err != nil {
-		fmt.Println("Couldn't load config.toml ", err)
-	}
 	logInit(*d)
 
 	log.Info("--------------Init program--------------")
 	log.Info(fmt.Sprintf("Version: %s Build Date: %s", version, buildDate))
-	log.WithFields(log.Fields{
-		"config": config.Conf,
-	}).Debug("Loading configuration...")
 
 	if !*v {
 		bioparser.Start(*u, *f)

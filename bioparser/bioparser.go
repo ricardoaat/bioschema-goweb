@@ -6,8 +6,6 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ricardoaat/bioschemas-goweb/config"
-
 	log "github.com/sirupsen/logrus"
 	yaml "gopkg.in/yaml.v2"
 )
@@ -98,7 +96,7 @@ func processCsv(u, f string) error {
 
 func specYAMLtoFile(s Specification) error {
 	fn := fmt.Sprintf("%s specification.yaml", s.SpecificationInfo.Title)
-	fout, err := os.Create(config.Conf.Path.OutPath + fn)
+	fout, err := os.Create(fn)
 	if err != nil {
 		log.Error("Fail to create file. Check your file path and permissions")
 		return err

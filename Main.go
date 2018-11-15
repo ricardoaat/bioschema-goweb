@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ricardoaat/bioschemas-goweb/bioparser"
+	"github.com/BioSchemas/bioschemas-goweb/bioparser"
 	"github.com/rifflock/lfshook"
 	log "github.com/sirupsen/logrus"
 )

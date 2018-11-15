@@ -1,0 +1,297 @@
+spec_info:
+  title: alternateName
+  subtitle: Text
+  description: An alias for the item.
+  version: ""
+  version_date: 20180920T140952
+  official_type: ""
+  full_example: ""
+mapping:
+- property: dateCreated
+  expected_types:
+  - Date
+  - DateTime
+  description: The date on which the CreativeWork was created or the item was added
+    to a DataFeed.
+  type: ""
+  type_url: ""
+  bsc_description: ""
+  marginality: Optional
+  cardinality: ONE
+  controlled_vocab: ""
+  example: |-
+    {
+    "@type": ["SoftwareApplication", "Tool"],
+    "dateCreated": "2108-06-13"
+    }
+- property: dateModified
+  expected_types:
+  - Date
+  - DateTime
+  description: The date on which the CreativeWork was most recently modified or when
+    the item's entry was modified within a DataFeed.
+  type: ""
+  type_url: ""
+  bsc_description: ""
+  marginality: Optional
+  cardinality: ONE
+  controlled_vocab: ""
+  example: |-
+    {
+    "@type": ["SoftwareApplication", "Tool"],
+    "dateModified": "2108-08-07"
+    }
+- property: description
+  expected_types:
+  - Text
+  description: A description of the item.
+  type: ""
+  type_url: ""
+  bsc_description: a linux container
+  marginality: Minimum
+  cardinality: ONE
+  controlled_vocab: ""
+  example: ""
+- property: downloadUrl
+  expected_types:
+  - URL
+  description: If the file can be downloaded, URL to download the binary. For containers
+    without an exposed wget url or similar, this can be the pull command.
+  type: ""
+  type_url: ""
+  bsc_description: ""
+  marginality: Optional
+  cardinality: MANY
+  controlled_vocab: ""
+  example: |-
+    {
+      "@type": ["SoftwareApplication", "Tool"],
+      "downloadURL": "https://github.com/sacdallago/cellmap"
+    }
+- property: featureList
+  expected_types:
+  - Text
+  - URL
+  description: Features or modules provided by this application (and possibly required
+    by other applications).
+  type: ""
+  type_url: ""
+  bsc_description: Please choose values from [EDAM:Operation](http://edamontology.org/operation_0004).
+  marginality: Minimum
+  cardinality: MANY
+  controlled_vocab: '[EDAM:Operation](http://edamontology.org/operation_0004)'
+  example: |-
+    {
+      "@type": ["SoftwareApplication", "Tool"],
+      "featureList": ["http://edamontology.org/topic_0821", "http://edamontology.org/topic_0128"]
+    }
+- property: hasPart
+  expected_types:
+  - CreativeWork
+  description: |-
+    Indicates a CreativeWork that is (in some sense) a part of this CreativeWork.
+    Inverse property: isPartOf.
+  type: ""
+  type_url: ""
+  bsc_description: |
+    Used to describe tools included into suites/bundles/workflows.
+  marginality: Optional
+  cardinality: MANY
+  controlled_vocab: ""
+  example: ""
+- property: identifier
+  expected_types:
+  - PropertyValue
+  - Text
+  - URL
+  description: The identifier property represents any kind of identifier for any kind
+    of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated
+    properties for representing many of these, either as textual strings or as URL
+    (URI) links. See [background notes](http://schema.org/docs/datamodel.html#identifierBg)
+    for more details.
+  type: ""
+  type_url: ""
+  bsc_description: Unique identifier for the container, typically corresponding to
+    a uri to designate a registry source
+  marginality: Recommended
+  cardinality: ONE
+  controlled_vocab: ""
+  example: <username>/<repository>:<tag>@<hash>
+- property: input
+  expected_types:
+  - URL
+  description: ""
+  type: external
+  type_url: http://semanticscience.org/resource/SIO_000230
+  bsc_description: |
+    The input format of the data. Must be one of the [EDAM:Data](http://edamontology.org/data_0006) concept labels or one of its synonyms.
+  marginality: Recommended
+  cardinality: MANY
+  controlled_vocab: '[EDAM:Data](http://edamontology.org/data_0006)'
+  example: |-
+    {
+    "@type": ["SoftwareApplication", "Tool"],
+    "input": ["http://edamontology.org/data_2977", "http://edamontology.org/data_2976"]
+    }
+- property: keywords
+  expected_types:
+  - Text
+  description: Keywords or tags used to describe this content. Multiple entries in
+    a keywords list are typically delimited by commas.
+  type: ""
+  type_url: ""
+  bsc_description: ""
+  marginality: Optional
+  cardinality: ONE
+  controlled_vocab: '[EDAM:Topic](http://edamontology.org/topic_0003)'
+  example: |-
+    {
+    "@type": ["SoftwareApplication", "Tool"],
+    "ketwords": "Biology, chemistry, medicine"
+    }
+- property: license
+  expected_types:
+  - Text
+  - URL
+  description: A license document that applies to this content, typically indicated
+    by URL.
+  type: ""
+  type_url: ""
+  bsc_description: |-
+    The applicable software license.
+    **Note:** Bioschemas have changed the Expected Types to [URL](http://schema.org/URL) or [Text](http://schema.org/Text).
+  marginality: Recommended
+  cardinality: MANY
+  controlled_vocab: ""
+  example: |-
+    {
+    "@type": ["SoftwareApplication", "Tool"],
+    "license": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+- property: name
+  expected_types:
+  - Text
+  description: The name of the item.
+  type: ""
+  type_url: ""
+  bsc_description: ""
+  marginality: Minimum
+  cardinality: ONE
+  controlled_vocab: ""
+  example: ""
+- property: operatingSystem
+  expected_types:
+  - Text
+  description: Operating systems supported (Windows 7, OSX 10.6, Android 1.6).
+  type: ""
+  type_url: ""
+  bsc_description: Operating systems on which the container runs, typically Linux
+    derivatives and (for some containers) Windows.
+  marginality: Optional
+  cardinality: MANY
+  controlled_vocab: ""
+  example: |-
+    {
+      "@type": ["SoftwareApplication", "Tool"],
+      "operatingSystem": ["Windows 7 or above", "Linux/Unix", "Mac/Apple"]
+    }
+- property: output
+  expected_types:
+  - URL
+  description: ""
+  type: external
+  type_url: http://semanticscience.org/resource/SIO_000229
+  bsc_description: The output format of the data. Must be one of the [EDAM:Data](http://edamontology.org/data_0006)
+    concept labels or one of its synonyms.
+  marginality: Recommended
+  cardinality: MANY
+  controlled_vocab: '[EDAM:Data](http://edamontology.org/data_0006)'
+  example: |-
+    {
+    "@type": ["SoftwareApplication", "Tool"],
+    "input": ["http://edamontology.org/data_1383", "http://edamontology.org/data_1384"]
+    }
+- property: publisher
+  expected_types:
+  - Organization
+  - Person
+  description: The publisher of the creative work.
+  type: ""
+  type_url: ""
+  bsc_description: ""
+  marginality: Recommended
+  cardinality: MANY
+  controlled_vocab: ""
+  example: |-
+    {
+      "@type": ["SoftwareApplication", "Tool"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "National Center for Biotechnology Information National Library of Medicine",
+        "alternatName": "NCBI NLM"
+      }
+    }
+- property: softwareHelp
+  expected_types:
+  - CreativeWork
+  description: Software application help.
+  type: ""
+  type_url: ""
+  bsc_description: A documentation for the container, typically showing install steps,
+    usage, and a changelog.
+  marginality: Optional
+  cardinality: MANY
+  controlled_vocab: ""
+  example: |-
+    {
+      "@type": ["SoftwareApplication", "Tool"],
+      "softwareHelp": "https://biotools.readthedocs.io/en/latest/"
+    }
+- property: softwareRequirements
+  expected_types:
+  - Text
+  - URL
+  description: 'Component dependency requirements for application. This includes runtime
+    environments and shared libraries that are not included in the application distribution
+    package, but required to run the application (Examples: DirectX, Java or .NET
+    runtime). Supersedes requirements.'
+  type: ""
+  type_url: ""
+  bsc_description: ""
+  marginality: Optional
+  cardinality: MANY
+  controlled_vocab: ""
+  example: |-
+    {
+      "@type": ["SoftwareApplication", "Tool"],
+      "softwareRequirements": "JRE 8.0 or above"
+    }
+- property: softwareVersion
+  expected_types:
+  - Text
+  description: Version of the software instance.
+  type: ""
+  type_url: ""
+  bsc_description: version of the container instance
+  marginality: Minimum
+  cardinality: ONE
+  controlled_vocab: ""
+  example: |-
+    {
+      "@type": ["SoftwareApplication", "Tool"],
+      "softwareVersion": "1.0.2"
+    }
+- property: url
+  expected_types:
+  - URL
+  description: URL of the item.
+  type: ""
+  type_url: ""
+  bsc_description: URL of the container, typically associated with a registry that
+    shows the ContainerRecipe, vulnerability scans, and other metadata. This property
+    can be used on a page listing many containers to indicate each individual container's
+    page.
+  marginality: Minimum
+  cardinality: ONE
+  controlled_vocab: ""
+  example: ""

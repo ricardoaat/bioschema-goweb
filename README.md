@@ -24,9 +24,9 @@ It's just as simple as downloading the right executable file according your Oper
 
 SO |  Link
 --- | ---:
-![alt text](images/windows.png "Windows Logo") | [Windows](build/windows)
-![alt text](images/ubuntu.png "Linux Logo") | [Linux](build/linux)
-![alt text](images/apple.png "Mac Logo") | [MAC Darwin](build/darwin)
+![alt text](images/windows.png "Windows Logo") | [Windows](https://github.com/BioSchemas/bioschemas-goweb/releases/latest)
+![alt text](images/ubuntu.png "Linux Logo") | [Linux](https://github.com/BioSchemas/bioschemas-goweb/releases/latest)
+![alt text](images/apple.png "Mac Logo") | [MAC Darwin](https://github.com/BioSchemas/bioschemas-goweb/releases/latest)
 
 > **Note:** Log and YAML result files will be placed on the folder the program is executed.
 
@@ -34,7 +34,7 @@ SO |  Link
 ---
 #### MAC Darwin / Linux
 
-```./bioschema-goweb -u "https://docs.google.com/spreadsheets/d/e/2PACX-1vTjBKpODC7xTXlfw3P_VffN0u5zdoPt-2bZ4m3_kMGx16lQlz4XH9LyT5y_m-_Tk2AlAO2ID_MFXlTW/pub?gid=292464567&single=true&output=csv"```
+```./bioschemas-goweb_linux_64 -u "https://docs.google.com/spreadsheets/d/e/2PACX-1vTjBKpODC7xTXlfw3P_VffN0u5zdoPt-2bZ4m3_kMGx16lQlz4XH9LyT5y_m-_Tk2AlAO2ID_MFXlTW/pub?gid=292464567&single=true&output=csv"```
 
 #### Windows
 
@@ -51,3 +51,7 @@ SO |  Link
 Use the -h parameter to get info about the command tool.
 
 ```./bioschema-goweb -h```
+
+# Build
+
+To build the binaries run ```make build-all``` this will create a folder build/ with the binaries. 

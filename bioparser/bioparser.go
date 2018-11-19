@@ -50,21 +50,22 @@ var (
 //Start receive a file path and an URL path for a CSV, that could be empty,
 //and prints its content formated for Jekyl (YAML)
 func Start(u, f string) {
+
+	log.Info("Processing the CSV file")
 	err := processCsv(u, f)
 	if err != nil {
 		log.Error("CSV processor failed ", err)
 		return
 	}
-	yamlSpec, err := specsToYAML(Specifications[0])
-	if err != nil {
-		log.Error("Fail to get YAML string ", err)
-	}
-	fmt.Println(yamlSpec)
 
-	err = specYAMLtoFile(Specifications[0])
+	log.Info("Creating YAML file")
+	fileName := fmt.Sprintf("%s_specification.yaml", Specifications[0].SpecificationInfo.Title)
+	err = specYAMLtoFile(Specifications[0], fileName)
 	if err != nil {
 		log.Error("Fail to create YAML file from specification ", err)
 	}
+
+	log.Info("SUCCESS! File created: ", fileName)
 }
 
 func processCsv(u, f string) error {
@@ -94,8 +95,7 @@ func processCsv(u, f string) error {
 	return nil
 }
 
-func specYAMLtoFile(s Specification) error {
-	fn := fmt.Sprintf("%s specification.yaml", s.SpecificationInfo.Title)
+func specYAMLtoFile(s Specification, fn string) error {
 	fout, err := os.Create(fn)
 	if err != nil {
 		log.Error("Fail to create file. Check your file path and permissions")

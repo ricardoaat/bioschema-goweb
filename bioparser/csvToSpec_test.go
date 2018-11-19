@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ricardoaat/bioschemas-goweb/bioparser"
+	"github.com/BioSchemas/bioschemas-goweb/bioparser"
 )
 
 func TestParseSpecificationCSVToReturnSpecificationInstance(t *testing.T) {

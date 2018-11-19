@@ -59,13 +59,13 @@ func Start(u, f string) {
 	}
 
 	log.Info("Creating YAML file")
-	fileName := fmt.Sprintf("%s specification.yaml", Specifications[0].SpecificationInfo.Title)
+	fileName := fmt.Sprintf("%s_specification.yaml", Specifications[0].SpecificationInfo.Title)
 	err = specYAMLtoFile(Specifications[0], fileName)
 	if err != nil {
 		log.Error("Fail to create YAML file from specification ", err)
 	}
 
-	log.Info("SUCCESS! File created ")
+	log.Info("SUCCESS! File created: ", fileName)
 }
 
 func processCsv(u, f string) error {
